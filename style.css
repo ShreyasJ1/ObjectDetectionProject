@@ -1,13 +1,44 @@
 body {
-    background:linear-gradient(rgb(207, 109, 109),pink,rgb(235, 235, 165),rgb(106, 183, 199));
+    background: linear-gradient(rgb(207, 109, 109), pink, rgb(235, 235, 165), rgb(106, 183, 199));
 }
 
 .a1 {
-    color:black;
+    color: black;
     background-color: white;
     border-radius: 20px;
     font-size: 25px;
     margin-top: 30px;
     width: 500px;
     border-color: white;
+}
+
+.back {
+    float: right;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+.backgroundimage {
+    background-image: url("background.jpg");
+}
+
+.heading {
+    width: 100%;
+    font-size: 23px;
+    margin-top: 0;
+}
+
+.images {
+    border-radius: 20px;
+    width: 800px;
+    height: 700px;
+}
+
+h3 {
+    font-size: 18px !important;
+}
+
+h4 {
+    font-size: 16px !important;
 }
