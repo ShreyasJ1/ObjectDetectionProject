@@ -4,8 +4,8 @@ objects = [];
 
 
 function setup() {
-    canvas = createCanvas(640, 420);
-    canvas.center();   
+    canvas = createCanvas(640, 600);
+    canvas.position(625,250);   
     objectDetector = ml5.objectDetector('cocossd', modelLoaded);
     document.getElementById("status").innerHTML = "Status - Detecting Objects";
     
@@ -18,7 +18,7 @@ function preload() {
 function draw() {
     
     if (status != undefined) {
-        image(img, 0, 0, 640, 420);
+        image(img, 0, 0, 640, 600);
         for (i = 0; i < objects.length; i++) {
             document.getElementById("status").innerHTML = "Status - Object Detected";
             document.getElementById("result").innerHTML = "CocoSSD has detected " + objects.length + " objects"

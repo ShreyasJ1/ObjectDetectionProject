@@ -1,24 +1,21 @@
-img = "";
+img1 = "";
 status = "";
 objects = [];
 
-
-function setup() {
-    canvas = createCanvas(640, 420);
-    canvas.center();   
-    objectDetector = ml5.objectDetector('cocossd', modelLoaded);
-    document.getElementById("status").innerHTML = "Status - Detecting Objects";
-    
+function preload() {
+    img1 = loadImage("bedroom.jpg");  
 }
 
-function preload() {
-    img = loadImage("bedroom.jpg");
+function setup() {
+    canvas = createCanvas(640, 600);
+    canvas.position(625,250);
+    objectDetector = ml5.objectDetector('cocossd', modelLoaded);
+    document.getElementById("status").innerHTML = "Status - Detecting Objects";
 }
 
 function draw() {
-    
-    if (status != undefined) {
-        image(img, 0, 0, 640, 420);
+    if (status != undefined) { 
+        image(img1, 0, 0, 640, 600);
         for (i = 0; i < objects.length; i++) {
             document.getElementById("status").innerHTML = "Status - Object Detected";
             document.getElementById("result").innerHTML = "CocoSSD has detected " + objects.length + " objects"
@@ -31,13 +28,6 @@ function draw() {
         }
     }
 }
-
-function modelLoaded() {
-    console.log("CocoSSD is initialized");
-    status = true;
-    objectDetector.detect(img, gotResult);
-}
-
 function gotResult(error, results) {
     if (error) {
         console.log(error);
@@ -47,6 +37,12 @@ function gotResult(error, results) {
         objects = results;
 
     }
+}
+
+function modelLoaded() {
+    console.log("CocoSSD is initialized");
+    status = true;
+    objectDetector.detect(img1, gotResult);
 }
 
 function back() {
